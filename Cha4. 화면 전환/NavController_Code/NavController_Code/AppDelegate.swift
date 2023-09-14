@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NavigationController_Code
+//  NavController_Code
 //
-//  Created by 김태형 on 2023/09/14.
+//  Created by 김태형 on 2023/09/15.
 //
 
 import UIKit

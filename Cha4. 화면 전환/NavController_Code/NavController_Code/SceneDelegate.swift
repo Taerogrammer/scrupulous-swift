@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  NavigationController_Code
+//  NavController_Code
 //
-//  Created by 김태형 on 2023/09/14.
+//  Created by 김태형 on 2023/09/15.
 //
 
 import UIKit
@@ -16,7 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let navigationController = UINavigationController(rootViewController: FirstScreen())
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)    // Scene의 범위(크기) 설정
+        window?.windowScene = windowScene
+        window?.rootViewController = navigationController   // FirstScreen()을 보유하고 있는 navigationController를 루트 뷰로 설정해야지 네비게이션 또한 사용 가능 (FirstScreen()으로 해놓으면 네비게이션이 안됨
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
